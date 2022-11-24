@@ -28,5 +28,5 @@ export default {
       eletric: '#F2CB55',
       ground: '#F78551',
     },
-  },
+  } as const,
 }
