@@ -5,6 +5,7 @@ import { Pokemon, Request } from "../../interface/pokemons";
 import { api } from "../../services/api";
 import { Header, HomeContainer, Title } from "./styles";
 
+import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../@types/navigation";
 import pokeballHeader from '../../assets/pokeball.png';
@@ -18,6 +19,13 @@ type HomeScreenNavigationProp = NativeStackNavigationProp<
 export function Home() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
 
+  const navigation = useNavigation<HomeScreenNavigationProp>()
+
+  function handleNavigationNextPage(pokemonId: number) {
+    navigation.navigate('About', {
+      pokemonId
+    })
+  }
 
   async function getMoreInfo(url: string): Promise<Request> {
     const response = await api.get(url)
@@ -61,9 +69,10 @@ export function Home() {
         contentContainerStyle={{ paddingHorizontal: 20 }}
         keyExtractor={pokemon => String(pokemon.id)}
         renderItem={({ item: pokemon }) => (
-          <Card data={pokemon} />
+          <Card data={pokemon} onPress={() => handleNavigationNextPage(pokemon.id)} />
         )}
         showsVerticalScrollIndicator={false}
+
       />
     </HomeContainer>
   )
