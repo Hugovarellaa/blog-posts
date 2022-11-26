@@ -47,6 +47,7 @@ export function Home() {
         renderItem={({ item: pokemon }) => (
           <Card data={pokemon} />
         )}
+        showsVerticalScrollIndicator={false}
       />
     </HomeContainer>
   )
