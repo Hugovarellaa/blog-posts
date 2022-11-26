@@ -50,6 +50,7 @@ export function Home() {
             <Title>Pokédex</Title>
           </>
         }
+        contentContainerStyle={{ paddingHorizontal: 20 }}
         keyExtractor={pokemon => String(pokemon.id)}
         renderItem={({ item: pokemon }) => (
           <Card data={pokemon} />
