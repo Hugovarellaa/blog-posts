@@ -3,8 +3,9 @@ import { FlatList } from "react-native";
 import { Card } from "../../components/Card/inde";
 import { Pokemon, Request } from "../../interface/pokemons";
 import { api } from "../../services/api";
-import { HomeContainer } from "./styles";
+import { Header, HomeContainer, Title } from "./styles";
 
+import pokeballHeader from '../../assets/pokeball.png';
 
 export function Home() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
@@ -43,6 +44,12 @@ export function Home() {
     <HomeContainer>
       <FlatList
         data={pokemons}
+        ListHeaderComponent={
+          <>
+            <Header source={pokeballHeader} />
+            <Title>Pokédex</Title>
+          </>
+        }
         keyExtractor={pokemon => String(pokemon.id)}
         renderItem={({ item: pokemon }) => (
           <Card data={pokemon} />
