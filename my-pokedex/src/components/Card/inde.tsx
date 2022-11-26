@@ -8,6 +8,7 @@ import {
 
 import docsImage from '../../assets/dots.png';
 import pokeballImage from '../../assets/pokeballCard.png';
+import { FadeAnimation } from "../FadeAnimation";
 
 interface CardProps extends TouchableOpacityProps {
   data: Pokemon
@@ -34,11 +35,13 @@ export function Card({ data, ...rest }: CardProps) {
 
       <RightSize>
         <PokeballDetails source={pokeballImage} />
-        <PokemonImage
-          source={{
-            uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`,
-          }}
-        />
+        <FadeAnimation>
+          <PokemonImage
+            source={{
+              uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`,
+            }}
+          />
+        </FadeAnimation>
       </RightSize>
     </CardContainer>
   )
