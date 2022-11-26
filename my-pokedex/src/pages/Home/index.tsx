@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Text } from "react-native";
+import { FlatList } from "react-native";
+import { Card } from "../../components/Card/inde";
 import { api } from "../../services/api";
 import { HomeContainer } from "./styles";
 
@@ -50,13 +51,16 @@ export function Home() {
   useEffect(() => {
     fetchAllPokemon()
   }, [])
+
   return (
     <HomeContainer>
-      {
-        pokemons.map(pokemon => (
-          <Text>{pokemon.name}</Text>
-        ))
-      }
+      <FlatList
+        data={pokemons}
+        keyExtractor={pokemon => String(pokemon.id)}
+        renderItem={({ item: pokemon }) => (
+          <Card data={pokemon} />
+        )}
+      />
     </HomeContainer>
   )
 }
