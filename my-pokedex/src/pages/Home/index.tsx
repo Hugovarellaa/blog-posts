@@ -1,23 +1,10 @@
 import { useEffect, useState } from "react";
 import { FlatList } from "react-native";
 import { Card } from "../../components/Card/inde";
+import { Pokemon, Request } from "../../interface/pokemons";
 import { api } from "../../services/api";
 import { HomeContainer } from "./styles";
 
-type Request = {
-  id: number;
-  types: PokemonType[]
-}
-
-type PokemonType = {
-  type: string;
-}
-type Pokemon = {
-  name: string;
-  url: string
-  id: number
-  types: PokemonType[]
-}
 
 export function Home() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([])

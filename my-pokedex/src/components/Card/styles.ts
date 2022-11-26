@@ -1,11 +1,9 @@
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 
-
 interface PokemonType {
   type: string
 }
-
 
 export const CardContainer = styled(TouchableOpacity) <PokemonType>`
   border-radius: 10px;
@@ -19,8 +17,6 @@ export const LeftSize = styled.View`
   width: 50%;
   position: relative;
 `
-
-export const RightSize = styled.View``
 
 export const PokemonId = styled.Text`
   font-weight: bold;
@@ -72,4 +68,24 @@ export const PokemonTypeText = styled.Text`
   line-height: 14px;
   color: ${({ theme }) => theme.colors.text_white};
   text-transform: capitalize;
+`
+
+export const RightSize = styled.View`
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  
+  position: relative;
+`
+
+export const PokeballDetails = styled.Image`
+  position: absolute;
+  right: -20px;
+  top: -20px
+`
+
+export const PokemonImage = styled.Image`
+  width: 140px;
+  height: 140px;
+  margin-top: -40px;
 `

@@ -1,24 +1,13 @@
 import { TouchableOpacityProps } from "react-native";
+import { Pokemon } from "../../interface/pokemons";
 import {
   CardContainer,
-  LeftSize, PokemonContentType, PokemonId, PokemonImageCardDetailsLeftSize, PokemonName, PokemonType,
+  LeftSize, PokeballDetails, PokemonContentType, PokemonId, PokemonImage, PokemonImageCardDetailsLeftSize, PokemonName, PokemonType,
   PokemonTypeText, RightSize
 } from "./styles";
 
 import docsImage from '../../assets/dots.png';
-
-interface PokemonType {
-  type: {
-    name: string;
-  }
-}
-
-interface Pokemon {
-  id: number
-  name: string
-  url: string;
-  types: PokemonType[]
-}
+import pokeballImage from '../../assets/pokeballCard.png';
 
 interface CardProps extends TouchableOpacityProps {
   data: Pokemon
@@ -35,15 +24,22 @@ export function Card({ data, ...rest }: CardProps) {
         <PokemonContentType>
           {
             data.types.map(pokemonType => (
-              <PokemonType type='bug' key={pokemonType.type.name}>
+              <PokemonType type={pokemonType.type.name} key={pokemonType.type.name}>
                 <PokemonTypeText>{pokemonType.type.name}</PokemonTypeText>
               </PokemonType>
             ))
           }
-
         </PokemonContentType>
       </LeftSize>
-      <RightSize></RightSize>
+
+      <RightSize>
+        <PokeballDetails source={pokeballImage} />
+        <PokemonImage
+          source={{
+            uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`,
+          }}
+        />
+      </RightSize>
     </CardContainer>
   )
 }
