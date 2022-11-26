@@ -2,12 +2,19 @@ import LottieView from 'lottie-react-native';
 import { Content, Footer, SubTitle, Title, WelcomeContainer, WrapperAnimation, WrapperImage } from "./styles";
 
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StatusBar } from 'react-native';
+import { RootStackParamList } from '../../@types/navigation';
 import pokemonAnimation from '../../assets/pokemon.json';
 import { Button } from '../../components/Button';
 
+type WelcomeScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'Welcome'
+>;
+
 export function Welcome() {
-  const navigation = useNavigation()
+  const navigation = useNavigation<WelcomeScreenNavigationProp>()
 
   function handleNavigationNextPage() {
     navigation.navigate('Home')

@@ -5,7 +5,15 @@ import { Pokemon, Request } from "../../interface/pokemons";
 import { api } from "../../services/api";
 import { Header, HomeContainer, Title } from "./styles";
 
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../@types/navigation";
 import pokeballHeader from '../../assets/pokeball.png';
+
+type HomeScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'About'
+>;
+
 
 export function Home() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
