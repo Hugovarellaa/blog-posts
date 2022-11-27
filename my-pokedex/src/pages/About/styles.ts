@@ -63,3 +63,26 @@ export const PokemonName = styled.Text`
 export const PokemonTypeContainer = styled.View`
   flex-direction: row;
 `
+export const PokemonType = styled.View<TypeProps>`
+  width: 61px;
+  height: 25px;
+  background-color: ${({ theme, type }) => theme.colors.boxType[type]};
+  border-radius: 3px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  margin-top: 10px;
+`
+
+export const PokemonTypeText = styled.Text`
+  font-size: 12px;
+  line-height: 14px;
+  font-style: normal;
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.text_white};
+
+  text-transform: capitalize;
+
+  text-align: center;
+  justify-content: center;
+`

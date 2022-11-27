@@ -6,7 +6,7 @@ import { Alert, Text } from "react-native";
 import { useTheme } from "styled-components";
 import { RootStackParamList } from "../../@types/navigation";
 import { api } from "../../services/api";
-import { AboutContainer, BackButton, CircleImage, Content, ContentImage, Header, PokemonId, PokemonImage, PokemonName, PokemonTypeContainer } from "./styles";
+import { AboutContainer, BackButton, CircleImage, Content, ContentImage, Header, PokemonId, PokemonImage, PokemonName, PokemonType, PokemonTypeContainer, PokemonTypeText } from "./styles";
 
 import circleSvg from '../../assets/circle.png';
 import { FadeAnimation } from '../../components/FadeAnimation';
@@ -120,7 +120,13 @@ export function About() {
             <PokemonId>{`# ${pokemon.id}`}</PokemonId>
             <PokemonName>{pokemon.name}</PokemonName>
             <PokemonTypeContainer>
-
+              {
+                pokemon.types.map(({ type }) => (
+                  <PokemonType type={type.name} key={type.name}>
+                    <PokemonTypeText>{type.name}</PokemonTypeText>
+                  </PokemonType>
+                ))
+              }
             </PokemonTypeContainer>
           </Content>
         </Header>
