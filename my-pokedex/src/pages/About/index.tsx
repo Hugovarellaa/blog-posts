@@ -6,9 +6,10 @@ import { Alert, Text } from "react-native";
 import { useTheme } from "styled-components";
 import { RootStackParamList } from "../../@types/navigation";
 import { api } from "../../services/api";
-import { AboutContainer, BackButton, CircleImage, Content, ContentImage, Header, PokemonId, PokemonImage, PokemonName, PokemonType, PokemonTypeContainer, PokemonTypeText } from "./styles";
+import { AboutContainer, BackButton, CircleImage, Content, ContentImage, DocImage, Header, PokemonId, PokemonImage, PokemonName, PokemonType, PokemonTypeContainer, PokemonTypeText } from "./styles";
 
 import circleSvg from '../../assets/circle.png';
+import dotsSvg from '../../assets/dots.png';
 import { FadeAnimation } from '../../components/FadeAnimation';
 
 type AboutScreenNavigationProp = NativeStackNavigationProp<
@@ -129,6 +130,7 @@ export function About() {
               }
             </PokemonTypeContainer>
           </Content>
+          <DocImage source={dotsSvg} />
         </Header>
       </AboutContainer>
     )

@@ -86,3 +86,9 @@ export const PokemonTypeText = styled.Text`
   text-align: center;
   justify-content: center;
 `
+export const DocImage = styled.Image`
+  width: 85px;
+  position: absolute;
+  right: -20px;
+  top: 220px;
+`
