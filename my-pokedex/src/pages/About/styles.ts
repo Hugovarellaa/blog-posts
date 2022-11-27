@@ -26,8 +26,17 @@ export const BackButton = styled(TouchableOpacity)`
 
 `
 
-export const ContentImage = styled.View``
+export const ContentImage = styled.View`
+  position: relative;
+`
 
-export const CircleImage = styled.Image``
+export const CircleImage = styled.Image`
+  width: 125px;
+  height: 125px;
+  position: absolute;
+`
 
-export const PokemonImage = styled.Image``
+export const PokemonImage = styled.Image`
+  width: 125px;
+  height: 125px;
+`

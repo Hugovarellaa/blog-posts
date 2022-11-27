@@ -6,8 +6,10 @@ import { Alert, Text } from "react-native";
 import { useTheme } from "styled-components";
 import { RootStackParamList } from "../../@types/navigation";
 import { api } from "../../services/api";
-import { AboutContainer, BackButton, Header } from "./styles";
+import { AboutContainer, BackButton, CircleImage, ContentImage, Header, PokemonImage } from "./styles";
 
+import circleSvg from '../../assets/circle.png';
+import { FadeAnimation } from '../../components/FadeAnimation';
 
 type AboutScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
@@ -25,6 +27,7 @@ interface Stats {
     url: string
   },
 }
+
 interface Abilities {
   ability: {
     name: string
@@ -55,12 +58,15 @@ export function About() {
   const [pokemon, setPokemon] = useState({} as PokemonProps)
   const [loading, setLoading] = useState(true)
 
-  const { navigate } = useNavigation()
+  const { navigate, goBack } = useNavigation()
   const { colors } = useTheme()
 
   const route = useRoute()
   const { pokemonId } = route.params as RouteParams
 
+  function handleGoBack() {
+    goBack()
+  }
 
   async function getPokemonDetails() {
     try {
@@ -99,15 +105,16 @@ export function About() {
 
       <AboutContainer style={{ flex: 1 }}>
         <Header type={pokemon.types[0].type.name}>
-          <BackButton>
+          <BackButton onPress={handleGoBack}>
             <Feather name='chevron-left' size={24} color='#fff' />
           </BackButton>
 
-          {/* <ContentImage>
+          <ContentImage>
             <CircleImage source={circleSvg} />
-            <PokemonImage source={{ uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png` }} />
-          </ContentImage> */}
-
+            <FadeAnimation>
+              <PokemonImage source={{ uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png` }} />
+            </FadeAnimation>
+          </ContentImage>
         </Header>
       </AboutContainer>
     )
