@@ -6,7 +6,7 @@ import { Alert, Text } from "react-native";
 import { useTheme } from "styled-components";
 import { RootStackParamList } from "../../@types/navigation";
 import { api } from "../../services/api";
-import { AboutContainer, BackButton, CircleImage, Container, Content, ContentImage, DocImage, Header, PokemonId, PokemonImage, PokemonName, PokemonType, PokemonTypeContainer, PokemonTypeText, Title } from "./styles";
+import { Abilities, AboutContainer, Atributes, AtributesValue, BackButton, CircleImage, Container, Content, ContentBar, ContentImage, DocImage, Header, PokemonId, PokemonImage, PokemonName, PokemonType, PokemonTypeContainer, PokemonTypeText, ProgressBar, StatusBar, Title } from "./styles";
 
 import circleSvg from '../../assets/circle.png';
 import dotsSvg from '../../assets/dots.png';
@@ -135,6 +135,42 @@ export function About() {
 
         <Container>
           <Title type={pokemon.types[0].type.name}>Base States</Title>
+
+          {
+            pokemon.stats.map(atribute => (
+              <StatusBar key={atribute.stat.name}>
+                <Atributes>
+                  {atribute.stat.name}
+                </Atributes>
+
+                <AtributesValue>
+                  {atribute.base_stat}
+                </AtributesValue>
+
+                <ContentBar>
+                  <ProgressBar
+                    type={pokemon.types[0].type.name}
+                    borderWidth={0}
+                    progress={100}
+                    width={Number(atribute.base_stat)}
+                    color={pokemon.color}
+                  />
+                </ContentBar>
+
+
+              </StatusBar>
+
+            ))
+          }
+          <Title type={pokemon.types[0].type.name}>Abilities</Title>
+          {
+            pokemon.abilities.map(currentAbilities => (
+              <Abilities>
+                {currentAbilities.ability.name}
+              </Abilities>
+            ))
+          }
+
         </Container>
       </AboutContainer>
     )

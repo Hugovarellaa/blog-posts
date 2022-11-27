@@ -1,6 +1,6 @@
 
 export type RootStackParamList = {
   Welcome: undefined;
-  Home: undefined;
+  Home: { pokemonId: string };
   About: undefined;
 };

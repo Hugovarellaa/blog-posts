@@ -1,4 +1,5 @@
 import { ScrollView, TouchableOpacity } from "react-native";
+import * as Progress from 'react-native-progress';
 import styled from "styled-components/native";
 import { TypeColors } from ".";
 
@@ -112,4 +113,44 @@ export const Title = styled.Text<TypeProps>`
   padding: 20px;
   
 
+`
+export const StatusBar = styled.View`
+  width: 100%;
+  padding: 10px 20px;
+  flex-direction: row;
+  align-items: center;
+
+`
+export const Atributes = styled.Text`
+  width: 110px;
+  font-size: 12px;
+  line-height: 14px;
+  font-style: normal;
+  font-weight: 500;
+  text-transform: capitalize;
+  text-align: right;
+  color: ${({ theme }) => theme.colors.light_text};
+`
+export const AtributesValue = styled.Text`
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: capitalize;
+  color: ${({ theme }) => theme.colors.detail};
+  margin-left: 20px;
+`
+export const ContentBar = styled.View`
+  margin-left: 20px;
+`
+export const ProgressBar = styled(Progress.Bar) <TypeProps>``
+
+export const Abilities = styled.Text`
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  color: ${({ theme }) => theme.colors.detail};
 `
