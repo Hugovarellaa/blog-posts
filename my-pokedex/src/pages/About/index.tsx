@@ -6,7 +6,7 @@ import { Alert, Text } from "react-native";
 import { useTheme } from "styled-components";
 import { RootStackParamList } from "../../@types/navigation";
 import { api } from "../../services/api";
-import { AboutContainer, BackButton, CircleImage, ContentImage, Header, PokemonImage } from "./styles";
+import { AboutContainer, BackButton, CircleImage, Content, ContentImage, Header, PokemonId, PokemonImage, PokemonName, PokemonTypeContainer } from "./styles";
 
 import circleSvg from '../../assets/circle.png';
 import { FadeAnimation } from '../../components/FadeAnimation';
@@ -115,6 +115,14 @@ export function About() {
               <PokemonImage source={{ uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png` }} />
             </FadeAnimation>
           </ContentImage>
+
+          <Content>
+            <PokemonId>{`# ${pokemon.id}`}</PokemonId>
+            <PokemonName>{pokemon.name}</PokemonName>
+            <PokemonTypeContainer>
+
+            </PokemonTypeContainer>
+          </Content>
         </Header>
       </AboutContainer>
     )

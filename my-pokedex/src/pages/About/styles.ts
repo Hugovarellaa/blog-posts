@@ -40,3 +40,26 @@ export const PokemonImage = styled.Image`
   width: 125px;
   height: 125px;
 `
+export const Content = styled.View`
+  margin-left: 30px;
+`
+
+export const PokemonId = styled.Text`
+  font-size: 16px;
+  line-height: 19px;
+  font-style: normal;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.light_text};
+`
+export const PokemonName = styled.Text`
+  font-size: 28px;
+  line-height: 38px;
+  font-style: normal;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.text_white};
+
+  text-transform: capitalize;
+`
+export const PokemonTypeContainer = styled.View`
+  flex-direction: row;
+`
