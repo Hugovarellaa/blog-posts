@@ -7,7 +7,9 @@ interface TypeProps {
 }
 
 
-export const AboutContainer = styled(ScrollView)``
+export const AboutContainer = styled(ScrollView)`
+  background-color: ${({ theme }) => theme.colors.background};
+`
 
 export const Header = styled.View<TypeProps>`
   background-color: ${({ type, theme }) => theme.colors.backgroundCard[type]};
@@ -91,4 +93,23 @@ export const DocImage = styled.Image`
   position: absolute;
   right: -20px;
   top: 220px;
+`
+
+export const Container = styled.View`
+  flex: 1;
+  padding: 20px;
+  background-color: ${({ theme }) => theme.colors.background};
+  border-top-right-radius: 40px;
+  border-top-left-radius: 40px;
+  margin-top: -40px;
+`
+export const Title = styled.Text<TypeProps>`
+  font-size: 16px;
+  line-height: 19px;
+  font-style: normal;
+  font-weight: bold;
+  color: ${({ theme, type }) => theme.colors.boxType[type]};
+  padding: 20px;
+  
+
 `
